@@ -7,11 +7,12 @@
     "read": false
   },
   {
-    "title": "Nuestro plan de fiesta. Una correspondencia",
+    "title": "Nuestro plan de fiesta",
+    "subtitle": "Una correspondencia",
     "author": ["Camila Fabbri", "Jazmina Barrera"],
     "publishers": ["Vinilo Editora"],
     "image": "/books/nuestro_plan_de_fiesta.jpg",
-    "read": false
+    "read": true
   },
   {
     "title": "Archipiélago",
@@ -22,6 +23,7 @@
   },
   {
     "title": "Las gemelas, el sueño",
+    "subtitle": "The twins, the dream",
     "author": ["Diana Bellessi", "Ursula K. Le Guin"],
     "publishers": ["Rara Avis"],
     "image": "/books/las_gemelas.jpg",
@@ -41,7 +43,8 @@
     "read": false
   },
   {
-    "title": "Lo roto precede a lo entero. 125 infraensayos",
+    "title": "Lo roto precede a lo entero",
+    "subtitle": "125 infraensayos",
     "author": ["Cristina Rivera Garza"],
     "publishers": ["El Colegio Nacional"],
     "read": false
@@ -98,8 +101,9 @@
     "read": false
   },
   {
-    "title": "Contextual (microLSD – Microlibros sobre diseño)",
-    "author": ["Formafantasma", "Koen Kleijn", "Joel Blanco", "Lucas Muñoz"],
+    "title": "Contextual (1)",
+    "subtitle": "Micro libros sobre diseño",
+    "author": ["Formafantasma", "Koen Kleijn", "Joel Blanco", "Lucas Muñoz Muñoz"],
     "publishers": ["Bartlebooth"],
     "image": "/books/micro_libros.jpg",
     "read": false
