@@ -175,5 +175,98 @@
       "Bartlebooth"
     ],
     "image": "/books/contextual_1.jpg"
+  },
+  {
+    "title": "Papeles suizos. Novela histórica",
+    "author": [
+      "José Arenas"
+    ],
+    "publishers": [
+      "Pez en el Hielo"
+    ],
+    "image": "/books/papeles_suizos_novela_historica.jpg"
+  },
+  {
+    "title": "Allanamientos",
+    "author": [
+      "Sebastián Mederos"
+    ],
+    "publishers": [
+      "Pez en el Hielo"
+    ],
+    "image": "/books/allanamientos.jpg"
+  },
+  {
+    "title": "Mujeres en bicicleta / Lady Cycling",
+    "author": [
+      "F. J. Erskine"
+    ],
+    "publishers": [
+      "Impronta Casa Editora"
+    ],
+    "image": "/books/mujeres_en_bicicleta_lady_cycling.jpg"
+  },
+  {
+    "title": "Cartas a su madre",
+    "author": [
+      "Charles Baudelaire"
+    ],
+    "publishers": [
+      "Blatt & Ríos"
+    ],
+    "image": "/books/cartas_a_su_madre.jpg",
+    "translator": "Walter Romero"
+  },
+  {
+    "title": "Ya nadie escribe cartas",
+    "author": [
+      "Yang Eun-Jin"
+    ],
+    "publishers": [
+      "Shiro Libros"
+    ],
+    "image": "/books/ya_nadie_escribe_cartas.jpg"
+  },
+  {
+    "title": "Última carta a un lector",
+    "author": [
+      "Gerald Murnane"
+    ],
+    "publishers": [
+      "Gris Tormenta"
+    ],
+    "image": "/books/ultima_carta_a_un_lector.jpg",
+    "translator": "Adalber Salas Hernández"
+  },
+  {
+    "title": "Incensurable",
+    "author": [
+      "Luna Miguel"
+    ],
+    "publishers": [
+      "Literatura UNAM",
+      "Editorial Almadía"
+    ],
+    "image": "/books/incensurable.jpg"
+  },
+  {
+    "title": "Balún-Canán",
+    "author": [
+      "Rosario Castellanos"
+    ],
+    "publishers": [
+      "Fondo de Cultura Económica"
+    ],
+    "image": "/books/balun_canan.jpg"
+  },
+  {
+    "title": "Terrestre",
+    "author": [
+      "Cristina Rivera Garza"
+    ],
+    "publishers": [
+      "Random House"
+    ],
+    "image": "/books/terrestre.jpg"
   }
 ]
