@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Inundación. El lenguaje secreto del que estamos hechos",
+    "author": ["Eugenia Almeida"],
+    "publishers": ["Documenta / Escénicas Ediciones"],
+    "image": "/books/inundacion.jpg",
+    "read": false
+  },
+  {
+    "title": "Nuestro plan de fiesta. Una correspondencia",
+    "author": ["Camila Fabbri", "Jazmina Barrera"],
+    "publishers": ["Vinilo Editora"],
+    "image": "/books/nuestro_plan_de_fiesta.jpg",
+    "read": false
+  },
+  {
+    "title": "Archipiélago",
+    "author": ["Mariana Enríquez"],
+    "publishers": ["Ampersand"],
+    "image": "/books/archipielago.jpg",
+    "read": false
+  },
+  {
+    "title": "Las gemelas, el sueño",
+    "author": ["Diana Bellessi", "Ursula K. Le Guin"],
+    "publishers": ["Rara Avis"],
+    "image": "/books/las_gemelas.jpg",
+    "read": false
+  },
+  {
+    "title": "Correspondencia erótica",
+    "author": ["Virginia Woolf", "Vita Sackville-West"],
+    "publishers": ["Rara Avis"],
+    "image": "/books/correspondencia_erotica.webp",
+    "read": false
+  },
+  {
+    "title": "Correspondencia",
+    "author": ["Victoria Ocampo", "Virginia Woolf"],
+    "publishers": ["Rara Avis"],
+    "read": false
+  },
+  {
+    "title": "Lo roto precede a lo entero. 125 infraensayos",
+    "author": ["Cristina Rivera Garza"],
+    "publishers": ["El Colegio Nacional"],
+    "read": false
+  },
+  {
+    "title": "La filial",
+    "author": ["Serguéi Dovlátov"],
+    "publishers": ["Fulgencio Pimentel"],
+    "image": "/books/filial.jpg",
+    "read": false
+  },
+  {
+    "title": "Cuaderno de escritura infantil y juvenil",
+    "author": ["Varios autores"],
+    "publishers": ["Factotum Ediciones"],
+    "image": "/books/cuaderno_escritura.jpg",
+    "read": false
+  },
+  {
+    "title": "Una cartografía extraña",
+    "author": ["Lucía Egaña Rojas", "Paulina E. Varas"],
+    "publishers": ["Ediciones Metales Pesados"],
+    "read": false
+  },
+  {
+    "title": "Hetero",
+    "author": ["Uxue Alberdi Estibaritz"],
+    "publishers": ["Consonni"],
+    "image": "/books/hetero.webp",
+    "read": false
+  },
+  {
+    "title": "Pedagogías radicales y arte. Experiencias comunales",
+    "author": ["Varios autores"],
+    "publishers": ["Tumbalacasa Ediciones"],
+    "read": false
+  },
+  {
+    "title": "Correspondencia",
+    "author": ["Abigael Bojórquez"],
+    "publishers": ["UACM"],
+    "read": false
+  },
+  {
+    "title": "Final de temporada",
+    "author": ["Diego Agudelo Gómez"],
+    "publishers": ["Tragaluz Editores"],
+    "read": false
+  },
+  {
+    "title": "Cartas a Vincent",
+    "author": ["Julio César Pérez"],
+    "publishers": ["El Zorro Rojo"],
+    "read": false
+  },
+  {
+    "title": "Contextual (microLSD – Microlibros sobre diseño)",
+    "author": ["Formafantasma", "Koen Kleijn", "Joel Blanco", "Lucas Muñoz"],
+    "publishers": ["Bartlebooth"],
+    "image": "/books/micro_libros.jpg",
+    "read": false
+  }
+]
