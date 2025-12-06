@@ -1,27 +1,24 @@
 [
   {
-    "title": "Inundación",
-    "subtitle": "El lenguaje secreto del que estamos hechos",
+    "title": "Abigael Bojórquez",
+    "subtitle": "Correspondencia",
     "author": [
-      "Eugenia Almeida"
+      "Gerardo Bustamante Bermúdez"
     ],
     "publishers": [
-      "DocumentA/Escénicas"
+      "UACM"
     ],
-    "image": "/books/inundacion.jpg"
+    "image": "/books/abigael_bojorquez.jpg"
   },
   {
-    "title": "Nuestro plan de fiesta",
-    "subtitle": "Una correspondencia",
+    "title": "Allanamientos",
     "author": [
-      "Camila Fabbri",
-      "Jazmina Barrera"
+      "Sebastián Mederos"
     ],
     "publishers": [
-      "Vinilo Editora"
+      "Pez en el Hielo"
     ],
-    "image": "/books/nuestro_plan_de_fiesta.jpg",
-    "readDate": "2025-12-05"
+    "image": "/books/allanamientos.jpg"
   },
   {
     "title": "Archipiélago",
@@ -34,123 +31,24 @@
     "image": "/books/archipielago.jpg"
   },
   {
-    "title": "Las gemelas, el sueño",
-    "subtitle": "The twins, the dream",
+    "title": "Balún-Canán",
     "author": [
-      "Diana Bellessi",
-      "Ursula K. Le Guin"
+      "Rosario Castellanos"
     ],
     "publishers": [
-      "Rara Avis"
+      "Fondo de Cultura Económica"
     ],
-    "image": "/books/las_gemelas_el_sueno.jpg"
+    "image": "/books/balun_canan.jpg"
   },
   {
-    "title": "Correspondencia erótica",
+    "title": "Cartas a su madre",
     "author": [
-      "Virginia Woolf",
-      "Vita Sackville-West"
+      "Charles Baudelaire"
     ],
     "publishers": [
-      "Rara Avis"
+      "Blatt & Ríos"
     ],
-    "image": "/books/correspondencia_erotica.jpg"
-  },
-  {
-    "title": "Correspondencia",
-    "author": [
-      "Victoria Ocampo",
-      "Virginia Woolf"
-    ],
-    "publishers": [
-      "Rara Avis"
-    ],
-    "image": "/books/correspondencia.jpg"
-  },
-  {
-    "title": "Lo roto precede a lo entero",
-    "subtitle": "125 infraensayos",
-    "author": [
-      "Cristina Rivera Garza"
-    ],
-    "publishers": [
-      "El Colegio Nacional"
-    ],
-    "image": "/books/lo_roto_precede_a_lo_entero.jpg"
-  },
-  {
-    "title": "La filial",
-    "author": [
-      "Serguéi Dovlátov"
-    ],
-    "publishers": [
-      "Fulgencio Pimentel"
-    ],
-    "image": "/books/la_filial.jpg"
-  },
-  {
-    "title": "Cuaderno de escritura infantil y juvenil",
-    "subtitle": "20 grandes autores & 70 ejercicios de escritura",
-    "author": [
-      "Varios autores"
-    ],
-    "publishers": [
-      "Factotum Ediciones"
-    ],
-    "image": "/books/cuaderno_de_escritura_infantil_y_juvenil.jpg"
-  },
-  {
-    "title": "Una cartografía extraña",
-    "subtitle": "Producciones narrativas entre la migración y el arte",
-    "author": [
-      "Lucía Egaña Rojas",
-      "Paulina E. Varas"
-    ],
-    "publishers": [
-      "Ediciones Metales Pesados"
-    ],
-    "image": "/books/una_cartografia_extrana.jpg"
-  },
-  {
-    "title": "Hetero",
-    "author": [
-      "Uxue Alberdi"
-    ],
-    "publishers": [
-      "Consonni"
-    ],
-    "image": "/books/hetero.jpg"
-  },
-  {
-    "title": "Pedagogías radicales y arte: experiencias comunales",
-    "author": [
-      "Varios autores"
-    ],
-    "publishers": [
-      "Tumbalacasa"
-    ],
-    "image": "/books/pedagogias_radicales_y_arte_experiencias_comunales.jpg"
-  },
-  {
-    "title": "Abigael Bojórquez",
-    "subtitle": "Correspondencia",
-    "author": [
-      "Gerardo Bustamante Bermúdez"
-    ],
-    "publishers": [
-      "UACM"
-    ],
-    "image": "/books/abigael_bojorquez.jpg"
-  },
-  {
-    "title": "Final de temporada",
-    "author": [
-      "Diego Agudelo Gómez"
-    ],
-    "publishers": [
-      "Tragaluz Editores"
-    ],
-    "image": "/books/final_de_temporada.jpg"
+    "image": "/books/cartas_a_su_madre.jpg"
   },
   {
     "title": "Cartas a Vincent",
@@ -177,27 +75,116 @@
     "image": "/books/contextual_1.jpg"
   },
   {
-    "title": "Papeles suizos. Novela histórica",
+    "title": "Correspondencia",
     "author": [
-      "José Arenas"
+      "Victoria Ocampo",
+      "Virginia Woolf"
     ],
     "publishers": [
-      "Pez en el Hielo"
+      "Rara Avis"
     ],
-    "image": "/books/papeles_suizos_novela_historica.jpg"
+    "image": "/books/correspondencia.jpg"
   },
   {
-    "title": "Allanamientos",
+    "title": "Correspondencia erótica",
     "author": [
-      "Sebastián Mederos"
+      "Virginia Woolf",
+      "Vita Sackville-West"
     ],
     "publishers": [
-      "Pez en el Hielo"
+      "Rara Avis"
     ],
-    "image": "/books/allanamientos.jpg"
+    "image": "/books/correspondencia_erotica.jpg"
   },
   {
-    "title": "Mujeres en bicicleta / Lady Cycling",
+    "title": "Cuaderno de escritura infantil y juvenil",
+    "subtitle": "20 grandes autores & 70 ejercicios de escritura",
+    "author": [
+      "Varios autores"
+    ],
+    "publishers": [
+      "Factotum Ediciones"
+    ],
+    "image": "/books/cuaderno_de_escritura_infantil_y_juvenil.jpg"
+  },
+  {
+    "title": "Final de temporada",
+    "author": [
+      "Diego Agudelo Gómez"
+    ],
+    "publishers": [
+      "Tragaluz Editores"
+    ],
+    "image": "/books/final_de_temporada.jpg"
+  },
+  {
+    "title": "Hetero",
+    "author": [
+      "Uxue Alberdi"
+    ],
+    "publishers": [
+      "Consonni"
+    ],
+    "image": "/books/hetero.jpg"
+  },
+  {
+    "title": "Incensurable",
+    "author": [
+      "Luna Miguel"
+    ],
+    "publishers": [
+      "UNAM",
+      "Almadía"
+    ],
+    "image": "/books/incensurable.jpg"
+  },
+  {
+    "title": "Inundación",
+    "subtitle": "El lenguaje secreto del que estamos hechos",
+    "author": [
+      "Eugenia Almeida"
+    ],
+    "publishers": [
+      "DocumentA/Escénicas"
+    ],
+    "image": "/books/inundacion.jpg"
+  },
+  {
+    "title": "La filial",
+    "author": [
+      "Serguéi Dovlátov"
+    ],
+    "publishers": [
+      "Fulgencio Pimentel"
+    ],
+    "image": "/books/la_filial.jpg"
+  },
+  {
+    "title": "Las gemelas, el sueño",
+    "subtitle": "The twins, the dream",
+    "author": [
+      "Diana Bellessi",
+      "Ursula K. Le Guin"
+    ],
+    "publishers": [
+      "Rara Avis"
+    ],
+    "image": "/books/las_gemelas_el_sueno.jpg"
+  },
+  {
+    "title": "Lo roto precede a lo entero",
+    "subtitle": "125 infraensayos",
+    "author": [
+      "Cristina Rivera Garza"
+    ],
+    "publishers": [
+      "El Colegio Nacional"
+    ],
+    "image": "/books/lo_roto_precede_a_lo_entero.jpg"
+  },
+  {
+    "title": "Mujeres en bicicleta",
+    "subtitle": "Lady Cycling",
     "author": [
       "F. J. Erskine"
     ],
@@ -207,57 +194,37 @@
     "image": "/books/mujeres_en_bicicleta_lady_cycling.jpg"
   },
   {
-    "title": "Cartas a su madre",
+    "title": "Nuestro plan de fiesta",
+    "subtitle": "Una correspondencia",
     "author": [
-      "Charles Baudelaire"
+      "Camila Fabbri",
+      "Jazmina Barrera"
     ],
     "publishers": [
-      "Blatt & Ríos"
+      "Vinilo"
     ],
-    "image": "/books/cartas_a_su_madre.jpg",
-    "translator": "Walter Romero"
+    "image": "/books/nuestro_plan_de_fiesta.webp",
+    "readDate": "2025-12-05"
   },
   {
-    "title": "Ya nadie escribe cartas",
+    "title": "Papeles suizos",
     "author": [
-      "Yang Eun-Jin"
+      "José Arenas"
     ],
     "publishers": [
-      "Shiro Libros"
+      "Pez en el Hielo"
     ],
-    "image": "/books/ya_nadie_escribe_cartas.jpg"
+    "image": "/books/papeles_suizos_novela_historica.jpg"
   },
   {
-    "title": "Última carta a un lector",
+    "title": "Pedagogías radicales y arte: experiencias comunales",
     "author": [
-      "Gerald Murnane"
+      "Varios autores"
     ],
     "publishers": [
-      "Gris Tormenta"
+      "Tumbalacasa"
     ],
-    "image": "/books/ultima_carta_a_un_lector.jpg",
-    "translator": "Adalber Salas Hernández"
-  },
-  {
-    "title": "Incensurable",
-    "author": [
-      "Luna Miguel"
-    ],
-    "publishers": [
-      "Literatura UNAM",
-      "Editorial Almadía"
-    ],
-    "image": "/books/incensurable.jpg"
-  },
-  {
-    "title": "Balún-Canán",
-    "author": [
-      "Rosario Castellanos"
-    ],
-    "publishers": [
-      "Fondo de Cultura Económica"
-    ],
-    "image": "/books/balun_canan.jpg"
+    "image": "/books/pedagogias_radicales_y_arte_experiencias_comunales.jpg"
   },
   {
     "title": "Terrestre",
@@ -268,5 +235,37 @@
       "Random House"
     ],
     "image": "/books/terrestre.jpg"
+  },
+  {
+    "title": "Última carta a un lector",
+    "author": [
+      "Gerald Murnane"
+    ],
+    "publishers": [
+      "Gris Tormenta"
+    ],
+    "image": "/books/ultima_carta_a_un_lector.jpg"
+  },
+  {
+    "title": "Una cartografía extraña",
+    "subtitle": "Producciones narrativas entre la migración y el arte",
+    "author": [
+      "Lucía Egaña Rojas",
+      "Paulina E. Varas"
+    ],
+    "publishers": [
+      "Ediciones Metales Pesados"
+    ],
+    "image": "/books/una_cartografia_extrana.jpg"
+  },
+  {
+    "title": "Ya nadie escribe cartas",
+    "author": [
+      "Jang Eun-jin"
+    ],
+    "publishers": [
+      "Shiro"
+    ],
+    "image": "/books/ya_nadie_escribe_cartas.jpg"
   }
 ]

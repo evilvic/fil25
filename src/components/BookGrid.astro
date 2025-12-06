@@ -5,7 +5,7 @@ interface Book {
   author: string[];
   publishers: string[];
   image?: string;
-  read: boolean;
+  readDate?: string;
 }
 
 interface Props {
@@ -13,26 +13,46 @@ interface Props {
 }
 
 const { books } = Astro.props;
+
 ---
 
 <div class="book-grid">
   {books.map((book) => (
-    <article class={`book-card ${book.read ? 'read' : 'unread'}`}>
+    <article class={`book-card ${book.readDate ? 'read' : 'unread'}`}>
       <div class="book-image-wrapper">
         {book.image ? (
-          <img
-            src={book.image}
-            alt={`Portada de ${book.title}${book.subtitle ? `: ${book.subtitle}` : ''}`}
-            class="book-image"
-            loading="lazy"
-          />
+          <>
+            <img
+              src={book.image}
+              alt={`Portada de ${book.title}${book.subtitle ? `: ${book.subtitle}` : ''}`}
+              class="book-image"
+              loading="lazy"
+              onerror="this.style.display='none'; const placeholder=this.nextElementSibling; if(placeholder){ placeholder.classList.remove('placeholder-hidden'); }"
+            />
+            <div class="book-image-placeholder placeholder-hidden">
+              <div class="book-placeholder-body">
+                <h3 class="placeholder-title">{book.title}</h3>
+                {book.subtitle && <p class="placeholder-subtitle">{book.subtitle}</p>}
+                <p class="placeholder-authors">{book.author.join(', ')}</p>
+              </div>
+              <p class="placeholder-publisher">{book.publishers.join(' / ')}</p>
+            </div>
+          </>
         ) : (
           <div class="book-image-placeholder">
-            <span class="book-image-placeholder-text">{book.title.charAt(0)}</span>
+            <div class="book-placeholder-body">
+              <h3 class="placeholder-title">{book.title}</h3>
+              {book.subtitle && <p class="placeholder-subtitle">{book.subtitle}</p>}
+              <p class="placeholder-authors">{book.author.join(', ')}</p>
+            </div>
+            <p class="placeholder-publisher">{book.publishers.join(' / ')}</p>
           </div>
         )}
       </div>
       <div class="book-info">
+        {book.readDate && (
+          <span class="book-read-date">{book.readDate}</span>
+        )}
         <h2 class="book-title">{book.title}</h2>
         {book.subtitle && (
           <p class="book-subtitle">{book.subtitle}</p>
@@ -123,26 +143,175 @@ const { books } = Astro.props;
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--border, rgba(0, 0, 0, 0.1));
-    color: var(--text-tertiary, rgba(0, 0, 0, 0.24));
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    padding: 0.6rem 0.55rem 0.55rem;
+    background: linear-gradient(145deg, #f8f8f8, #ebebeb);
+    color: #1a1a1a;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
   }
 
-  .book-image-placeholder-text {
-    font-size: 2rem;
+  .book-placeholder-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1 1 0;
+    overflow: hidden;
+    min-height: 0;
+    flex-shrink: 1;
+  }
+
+  .placeholder-title {
+    font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+    font-weight: var(--font-weight-semibold, 600);
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    color: #1a1a1a;
+    padding-bottom: 0.35rem;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.18);
+    max-width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .placeholder-subtitle {
+    font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    font-style: italic;
+    font-weight: var(--font-weight-regular, 400);
+    margin: 0;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.25;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    max-width: 100%;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .placeholder-authors {
+    font-size: clamp(0.55rem, 1.3vw, 0.7rem);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    margin-top: auto;
     font-weight: var(--font-weight-medium, 500);
-    opacity: 0.5;
+    max-width: 100%;
+    min-width: 0;
+    flex-shrink: 1;
+    line-height: 1.25;
+  }
+
+  .placeholder-publisher {
+    font-size: clamp(0.5rem, 1.1vw, 0.6rem);
+    margin: 0;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 0.35rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    font-weight: var(--font-weight-medium, 500);
+    max-width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+    margin-top: 0;
+    line-height: 1.15;
+  }
+
+  /* Ajustes responsivos para placeholders */
+  @media (max-width: 480px) {
+    .book-image-placeholder {
+      padding: 0.55rem 0.5rem 0.5rem;
+      gap: 0.3rem;
+    }
+
+    .book-placeholder-body {
+      gap: 0.3rem;
+    }
+
+    .placeholder-title {
+      padding-bottom: 0.3rem;
+      font-size: 0.65rem;
+      line-height: 1.15;
+      -webkit-line-clamp: 3;
+    }
+
+    .placeholder-subtitle {
+      font-size: 0.55rem;
+      line-height: 1.2;
+      -webkit-line-clamp: 2;
+    }
+
+    .placeholder-authors {
+      font-size: 0.5rem;
+      line-height: 1.2;
+      -webkit-line-clamp: 2;
+    }
+
+    .placeholder-publisher {
+      font-size: 0.5rem;
+      padding-top: 0.3rem;
+      line-height: 1.1;
+    }
   }
 
   .book-card.unread .book-image-placeholder {
-    opacity: 0.6;
+    opacity: 0.8;
+  }
+
+  .placeholder-hidden {
+    display: none;
   }
 
   .book-info {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+  }
+
+  .book-read-date {
+    display: inline-block;
+    font-size: var(--font-size-s, 0.875rem);
+    font-weight: var(--font-weight-medium, 500);
+    color: #1a1a1a;
+    background-color: #ffffff;
+    padding: 0.25rem 0.625rem;
+    border-radius: 1rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+    width: fit-content;
+    letter-spacing: 0.01em;
   }
 
   .book-title {
@@ -157,14 +326,18 @@ const { books } = Astro.props;
   }
 
   .book-subtitle {
-    font-size: var(--font-size-s, 0.875rem);
+    font-size: var(--font-size-m, 1rem);
     font-weight: var(--font-weight-regular, 400);
-    color: var(--text-secondary, rgba(0, 0, 0, 0.4));
-    margin: 0.125rem 0 0 0;
-    line-height: 1.4;
+    color: var(--text-primary, rgba(0, 0, 0, 0.85));
+    margin: 0;
+    line-height: 1.3;
     font-style: italic;
     word-wrap: break-word;
     overflow-wrap: break-word;
+  }
+
+  .book-title + .book-subtitle {
+    margin-top: -0.125rem;
   }
 
   .book-author {
@@ -181,6 +354,7 @@ const { books } = Astro.props;
     color: var(--text-tertiary, rgba(0, 0, 0, 0.24));
     margin: 0;
     line-height: 1.5;
+    text-transform: uppercase;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -215,4 +389,3 @@ const { books } = Astro.props;
     opacity: 0.6;
   }
 </style>
-
