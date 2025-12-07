@@ -8,7 +8,6 @@ Astro keeps page routing in `src/pages` (the entry point is `src/pages/index.ast
 - `npm run dev`: launch the local dev server on `http://localhost:4321`; hot reload confirms JSON and asset changes.
 - `npm run build`: generate the production bundle in `dist/`; run before every PR to catch Astro/TypeScript errors.
 - `npm run preview`: serve the built site to double-check the static output.
-- `npm run astro check`: run Astro’s diagnostics (type analysis, config validation) when debugging CI failures.
 
 ## Coding Style & Naming Conventions
 Follow Astro + TypeScript defaults: 2-space indentation, single quotes for strings, and explicit interfaces for props (see `Book` in `src/components/BookGrid.astro`). Keep JSON keys in `libros.json` ordered as shown (`title`, `subtitle`, `author`, `publishers`, `image`, `read`) so diffs stay predictable. CSS files lean on custom properties (e.g., `--font-size-m`)—extend those tokens before adding raw values. Keep filenames in lowercase-kebab-case and stick to Spanish copy for user-facing text.

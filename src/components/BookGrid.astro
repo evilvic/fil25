@@ -31,15 +31,22 @@ function generateSrcSet(imagePath: string): string {
 ---
 
 <div class="book-grid">
-  {books.map((book, index) => (
+  {books.map((book, index) => {
+    const staggerClass = `stagger-${(index % 8) + 1}`;
+    return (
     <article 
-      class={`book-card ${book.readDate ? 'read' : 'unread'}`}
+      class={`book-card ${book.readDate ? 'read' : 'unread'} ${staggerClass}`}
       data-book-index={index}
       data-book-title={book.title.toLowerCase()}
       data-book-subtitle={book.subtitle ? book.subtitle.toLowerCase() : ''}
       data-book-authors={JSON.stringify(book.author)}
       data-book-publishers={JSON.stringify(book.publishers)}
       data-book-read={book.readDate ? 'true' : 'false'}
+      data-book-read-date={book.readDate || ''}
+      data-book-first-author={book.author[0]?.toLowerCase() || ''}
+      role="article"
+      aria-label={`Libro: ${book.title}${book.subtitle ? ` - ${book.subtitle}` : ''} por ${book.author.join(', ')}`}
+      tabindex="0"
     >
       <div class="book-image-wrapper">
         {book.image ? (
@@ -90,7 +97,8 @@ function generateSrcSet(imagePath: string): string {
         </p>
       </div>
     </article>
-  ))}
+    );
+  })}
 </div>
 
 <style>
@@ -136,7 +144,61 @@ function generateSrcSet(imagePath: string): string {
   .book-card {
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease-out, filter 0.3s ease-out;
+    transition: transform 0.3s ease-out, filter 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .book-card:focus-visible {
+    outline: 3px solid var(--text-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Animaciones de entrada/salida */
+  .book-card.hiding {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+  }
+
+  .book-card.showing {
+    animation: fadeInScale 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Stagger animation - delay escalonado */
+  .book-card.stagger-1 { animation-delay: 0.02s; }
+  .book-card.stagger-2 { animation-delay: 0.04s; }
+  .book-card.stagger-3 { animation-delay: 0.06s; }
+  .book-card.stagger-4 { animation-delay: 0.08s; }
+  .book-card.stagger-5 { animation-delay: 0.10s; }
+  .book-card.stagger-6 { animation-delay: 0.12s; }
+  .book-card.stagger-7 { animation-delay: 0.14s; }
+  .book-card.stagger-8 { animation-delay: 0.16s; }
+
+  /* Hover effects mejorados */
+  .book-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    transition: transform 0.2s ease-out, filter 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  .book-card:hover .book-image {
+    filter: brightness(1.05);
+  }
+
+  .book-card:hover .book-title {
+    color: var(--text-primary);
   }
 
   .book-image-wrapper {
@@ -422,6 +484,25 @@ function generateSrcSet(imagePath: string): string {
 
   .lazy-image.loaded {
     opacity: 1;
+  }
+
+  /* Respetar prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .book-card {
+      transition: filter 0.01ms ease-out;
+      animation: none !important;
+    }
+    
+    .book-card.hiding,
+    .book-card.showing {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    .book-card:hover {
+      transform: none;
+    }
   }
 </style>
 

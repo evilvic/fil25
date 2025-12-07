@@ -9,7 +9,8 @@
     "astro": "astro",
     "validate": "node scripts/validate-libros.js",
     "prebuild": "npm run validate",
-    "generate-images": "node scripts/generate-image-variants.js"
+    "generate-images": "node scripts/generate-all-variants.js",
+    "analyze": "node scripts/analyze-bundle.js"
   },
   "dependencies": {
     "astro": "^5.16.4"

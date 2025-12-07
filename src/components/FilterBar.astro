@@ -21,12 +21,15 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
       class="filter-input"
       placeholder="Buscar por título..."
       autocomplete="off"
+      aria-label="Buscar libros por título o subtítulo"
+      aria-describedby="search-description"
     />
+    <span id="search-description" class="sr-only">Busca libros escribiendo parte del título o subtítulo</span>
   </div>
 
   <div class="filter-group">
     <label for="status-filter" class="filter-label">Estado</label>
-    <select id="status-filter" class="filter-select">
+    <select id="status-filter" class="filter-select" aria-label="Filtrar por estado de lectura">
       <option value="all">Todos</option>
       <option value="read">Leídos</option>
       <option value="unread">Pendientes</option>
@@ -35,7 +38,7 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
 
   <div class="filter-group">
     <label for="author-filter" class="filter-label">Autor</label>
-    <select id="author-filter" class="filter-select">
+    <select id="author-filter" class="filter-select" aria-label="Filtrar por autor">
       <option value="all">Todos los autores</option>
       {allAuthors.map(author => (
         <option value={author}>{author}</option>
@@ -45,7 +48,7 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
 
   <div class="filter-group">
     <label for="publisher-filter" class="filter-label">Editorial</label>
-    <select id="publisher-filter" class="filter-select">
+    <select id="publisher-filter" class="filter-select" aria-label="Filtrar por editorial">
       <option value="all">Todas las editoriales</option>
       {allPublishers.map(publisher => (
         <option value={publisher}>{publisher}</option>
@@ -53,10 +56,23 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
     </select>
   </div>
 
-  <button id="clear-filters" class="clear-button" type="button">Limpiar filtros</button>
+  <div class="filter-group">
+    <label for="sort-select" class="filter-label">Ordenar</label>
+    <select id="sort-select" class="filter-select" aria-label="Ordenar libros">
+      <option value="default">Orden original</option>
+      <option value="title-asc">Título (A-Z)</option>
+      <option value="title-desc">Título (Z-A)</option>
+      <option value="author-asc">Autor (A-Z)</option>
+      <option value="author-desc">Autor (Z-A)</option>
+      <option value="read-date-asc">Fecha lectura (antiguos primero)</option>
+      <option value="read-date-desc">Fecha lectura (recientes primero)</option>
+    </select>
+  </div>
+
+  <button id="clear-filters" class="clear-button" type="button" aria-label="Limpiar todos los filtros y mostrar todos los libros">Limpiar filtros</button>
 </div>
 
-<div class="filter-results" id="filter-results">
+<div class="filter-results" id="filter-results" role="status" aria-live="polite" aria-atomic="true">
   <span id="results-count"></span>
 </div>
 
@@ -71,10 +87,11 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
       const statusFilter = document.getElementById('status-filter');
       const authorFilter = document.getElementById('author-filter');
       const publisherFilter = document.getElementById('publisher-filter');
+      const sortSelect = document.getElementById('sort-select');
       const clearButton = document.getElementById('clear-filters');
       const resultsCount = document.getElementById('results-count');
 
-      if (!searchInput || !statusFilter || !authorFilter || !publisherFilter || !clearButton) {
+      if (!searchInput || !statusFilter || !authorFilter || !publisherFilter || !sortSelect || !clearButton) {
         console.error('Elementos de filtro no encontrados');
         setTimeout(initFilters, 100);
         return;
@@ -85,7 +102,7 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
         try {
           const url = new URL(window.location.href);
           Object.entries(params).forEach(([key, value]) => {
-            if (value && value !== 'all') {
+            if (value && value !== 'all' && value !== 'default') {
               url.searchParams.set(key, value);
             } else {
               url.searchParams.delete(key);
@@ -106,9 +123,10 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
             status: params.get('status') || 'all',
             author: params.get('author') || 'all',
             publisher: params.get('publisher') || 'all',
+            sort: params.get('sort') || 'default',
           };
         } catch (e) {
-          return { search: '', status: 'all', author: 'all', publisher: 'all' };
+          return { search: '', status: 'all', author: 'all', publisher: 'all', sort: 'default' };
         }
       }
 
@@ -215,9 +233,10 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
         const status = statusFilter.value;
         const author = authorFilter.value;
         const publisher = publisherFilter.value;
+        const sort = sortSelect.value;
 
         // Actualizar URL
-        updateURL({ search: searchTerm, status, author, publisher });
+        updateURL({ search: searchTerm, status, author, publisher, sort });
 
         // Actualizar dropdowns dinámicamente ANTES de filtrar
         updateDropdowns(changedFilter);
@@ -254,12 +273,30 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
           const matchesPublisher = finalPublisher === 'all' ||
             cardPublishers.includes(finalPublisher);
 
-          // Mostrar u ocultar según todos los filtros
+          // Mostrar u ocultar según todos los filtros con animación
           if (matchesSearch && matchesStatus && matchesAuthor && matchesPublisher) {
-            card.style.display = '';
+            if (card.classList.contains('hiding') || card.style.display === 'none') {
+              // Mostrar con animación
+              card.style.display = '';
+              card.classList.remove('hiding');
+              card.classList.add('showing');
+              // Remover clase showing después de la animación
+              setTimeout(() => {
+                card.classList.remove('showing');
+              }, 400);
+            }
             visibleCount++;
           } else {
-            card.style.display = 'none';
+            // Ocultar con animación
+            if (!card.classList.contains('hiding')) {
+              card.classList.add('hiding');
+              setTimeout(() => {
+                if (card.classList.contains('hiding')) {
+                  card.style.display = 'none';
+                  card.classList.remove('hiding');
+                }
+              }, 300);
+            }
           }
         });
 
@@ -271,6 +308,106 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
             resultsCount.textContent = `${visibleCount} de ${bookCards.length} libros`;
           }
         }
+
+        // Aplicar ordenamiento después del filtrado
+        sortBooks();
+      }
+
+      // Función de ordenamiento
+      function sortBooks() {
+        const bookGrid = document.querySelector('.book-grid');
+        if (!bookGrid || !sortSelect) return;
+
+        const sortValue = sortSelect.value;
+        
+        // Obtener todas las tarjetas (visibles y ocultas)
+        const allCards = Array.from(bookGrid.querySelectorAll('.book-card'));
+        
+        // Separar visibles y ocultas usando getComputedStyle para mayor confiabilidad
+        const visibleCards = allCards.filter(card => {
+          const computedStyle = window.getComputedStyle(card);
+          return computedStyle.display !== 'none';
+        });
+        const hiddenCards = allCards.filter(card => {
+          const computedStyle = window.getComputedStyle(card);
+          return computedStyle.display === 'none';
+        });
+
+        if (sortValue === 'default') {
+          // Restaurar orden original basado en data-book-index
+          allCards.sort((a, b) => {
+            const indexA = parseInt(a.getAttribute('data-book-index') || '0');
+            const indexB = parseInt(b.getAttribute('data-book-index') || '0');
+            return indexA - indexB;
+          });
+        } else {
+          // Ordenar solo las tarjetas visibles
+          visibleCards.sort((a, b) => {
+            switch (sortValue) {
+              case 'title-asc':
+                const titleA = a.getAttribute('data-book-title') || '';
+                const titleB = b.getAttribute('data-book-title') || '';
+                return titleA.localeCompare(titleB, 'es', { sensitivity: 'base' });
+              
+              case 'title-desc':
+                const titleADesc = a.getAttribute('data-book-title') || '';
+                const titleBDesc = b.getAttribute('data-book-title') || '';
+                return titleBDesc.localeCompare(titleADesc, 'es', { sensitivity: 'base' });
+              
+              case 'author-asc':
+                const authorA = a.getAttribute('data-book-first-author') || '';
+                const authorB = b.getAttribute('data-book-first-author') || '';
+                return authorA.localeCompare(authorB, 'es', { sensitivity: 'base' });
+              
+              case 'author-desc':
+                const authorADesc = a.getAttribute('data-book-first-author') || '';
+                const authorBDesc = b.getAttribute('data-book-first-author') || '';
+                return authorBDesc.localeCompare(authorADesc, 'es', { sensitivity: 'base' });
+              
+              case 'read-date-asc':
+                const dateA = a.getAttribute('data-book-read-date') || '';
+                const dateB = b.getAttribute('data-book-read-date') || '';
+                if (!dateA && !dateB) return 0;
+                if (!dateA) return 1; // Sin fecha al final
+                if (!dateB) return -1;
+                return dateA.localeCompare(dateB);
+              
+              case 'read-date-desc':
+                const dateADesc = a.getAttribute('data-book-read-date') || '';
+                const dateBDesc = b.getAttribute('data-book-read-date') || '';
+                if (!dateADesc && !dateBDesc) return 0;
+                if (!dateADesc) return 1; // Sin fecha al final
+                if (!dateBDesc) return -1;
+                return dateBDesc.localeCompare(dateADesc);
+              
+              default:
+                return 0;
+            }
+          });
+        }
+
+        // Reordenar en el DOM: primero las visibles ordenadas, luego las ocultas
+        visibleCards.forEach((card, index) => {
+          // Remover clases stagger anteriores
+          card.classList.remove('stagger-1', 'stagger-2', 'stagger-3', 'stagger-4', 'stagger-5', 'stagger-6', 'stagger-7', 'stagger-8');
+          // Agregar clase stagger basada en el índice (máximo 8 para no exceder)
+          const staggerIndex = (index % 8) + 1;
+          card.classList.add(`stagger-${staggerIndex}`);
+          bookGrid.appendChild(card);
+        });
+        hiddenCards.forEach(card => bookGrid.appendChild(card));
+        
+        // Aplicar animación de aparición después de un pequeño delay para que el DOM se actualice
+        requestAnimationFrame(() => {
+          visibleCards.forEach(card => {
+            if (!card.classList.contains('showing')) {
+              card.classList.add('showing');
+              setTimeout(() => {
+                card.classList.remove('showing');
+              }, 400);
+            }
+          });
+        });
       }
 
       // Event listeners
@@ -278,12 +415,26 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
       statusFilter.addEventListener('change', () => filterBooks('status'));
       authorFilter.addEventListener('change', () => filterBooks('author'));
       publisherFilter.addEventListener('change', () => filterBooks('publisher'));
+      sortSelect.addEventListener('change', function() {
+        const sort = sortSelect.value;
+        // Obtener otros parámetros actuales para mantenerlos en la URL
+        const currentParams = getURLParams();
+        updateURL({ 
+          search: currentParams.search, 
+          status: currentParams.status, 
+          author: currentParams.author, 
+          publisher: currentParams.publisher, 
+          sort: sort 
+        });
+        sortBooks();
+      });
 
       clearButton.addEventListener('click', function() {
         searchInput.value = '';
         statusFilter.value = 'all';
         authorFilter.value = 'all';
         publisherFilter.value = 'all';
+        sortSelect.value = 'default';
         filterBooks(null);
       });
 
@@ -293,6 +444,7 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
       statusFilter.value = params.status;
       authorFilter.value = params.author;
       publisherFilter.value = params.publisher;
+      sortSelect.value = params.sort;
       
       // Ejecutar filtrado después de un pequeño delay para asegurar que las tarjetas estén renderizadas
       // Primero actualizar dropdowns, luego filtrar
@@ -360,9 +512,15 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
 
   .filter-input:focus,
   .filter-select:focus {
-    outline: 2px solid var(--text-tertiary);
+    outline: 3px solid var(--text-primary);
     outline-offset: 2px;
     border-color: var(--text-primary);
+  }
+
+  .filter-input:focus-visible,
+  .filter-select:focus-visible {
+    outline: 3px solid var(--text-primary);
+    outline-offset: 2px;
   }
 
   /* Asegurar que los selects tengan el mismo estilo */
@@ -393,15 +551,33 @@ const allPublishers = [...new Set(books.flatMap(book => book.publishers))].sort(
     appearance: none;
   }
 
-  .clear-button:hover {
+  .clear-button:hover,
+  .clear-button:focus {
     background-color: var(--selection);
     border-color: var(--text-primary);
+  }
+
+  .clear-button:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
   }
 
   .filter-results {
     margin-bottom: 1.5rem;
     font-size: var(--font-size-s);
     color: var(--text-secondary);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 
   @media (max-width: 768px) {
