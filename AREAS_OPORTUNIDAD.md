@@ -18,33 +18,7 @@ Análisis realizado: Diciembre 2025
 
 ## 🟢 Mejoras Técnicas
 
-### 3. Optimización de imágenes ✅ COMPLETADO
-- **Oportunidad**: 
-  - Generar múltiples tamaños (srcset)
-  - Usar formato AVIF además de WebP
-  - Lazy loading mejorado con intersection observer
-- **Implementación completada**: 
-  - ✅ Script `generate-image-variants.js` para generar variantes en 400w, 600w, 800w, 1200w
-  - ✅ Srcset implementado con múltiples tamaños responsivos
-  - ✅ Intersection Observer para lazy loading mejorado
-  - ✅ Soporte para AVIF con fallback automático a WebP/JPG
-  - ✅ Carga diferida con `data-src` y observación de intersección
-  - ✅ Preload de imágenes a 100px antes de entrar al viewport
-  - ✅ Transición suave de opacidad al cargar imágenes
-  - ✅ Fallback para navegadores sin Intersection Observer
-  - ✅ `decoding="async"` para mejor rendimiento
-  - ✅ Comando `npm run generate-images` para regenerar variantes cuando sea necesario
-
-### 4. SEO mejorado
-- **Oportunidad**: 
-  - Open Graph tags
-  - Twitter Cards
-  - Schema.org markup para libros
-  - Sitemap.xml
-  - robots.txt
-- **Valor**: Mejor indexación, previews en redes sociales
-
-### 5. Accesibilidad
+### 3. Accesibilidad
 - **Oportunidad**: 
   - Mejorar contraste en modo oscuro
   - ARIA labels en elementos interactivos
@@ -52,7 +26,7 @@ Análisis realizado: Diciembre 2025
   - Skip links
 - **Valor**: Cumplimiento WCAG, mejor experiencia para todos
 
-### 6. Performance
+### 4. Performance
 - **Oportunidad**: 
   - Preload de fuentes críticas
   - Critical CSS inline
@@ -60,7 +34,7 @@ Análisis realizado: Diciembre 2025
   - Bundle analysis
 - **Métrica objetivo**: Lighthouse score > 90
 
-### 7. Testing
+### 5. Testing
 - **Oportunidad**: Tests automatizados
 - **Implementación**: 
   - Vitest para unit tests
@@ -69,26 +43,26 @@ Análisis realizado: Diciembre 2025
 
 ## 🔵 Mejoras de UX/UI
 
-### 8. Animaciones y transiciones
+### 6. Animaciones y transiciones
 - **Oportunidad**: 
   - Transiciones suaves al filtrar/ordenar
   - Animación de aparición de tarjetas (stagger)
   - Hover effects más elaborados
 - **Nota**: Respetar `prefers-reduced-motion` (ya implementado)
 
-### 9. Modo de visualización
+### 7. Modo de visualización
 - **Oportunidad**: 
   - Toggle entre grid y lista
   - Tamaño de grid ajustable
   - Vista compacta vs. expandida
 
-### 10. Exportación de datos
+### 8. Exportación de datos
 - **Oportunidad**: 
   - Exportar a CSV/JSON
   - Generar PDF del catálogo
   - Compartir lista en redes sociales
 
-### 11. Feedback visual
+### 9. Feedback visual
 - **Oportunidad**: 
   - Indicador de carga
   - Mensajes de estado (sin resultados en búsqueda)
@@ -96,7 +70,7 @@ Análisis realizado: Diciembre 2025
 
 ## 🟣 Mejoras de Datos
 
-### 12. Campos adicionales en JSON
+### 10. Campos adicionales en JSON
 - **Oportunidad**: 
   - `year`: Año de publicación
   - `isbn`: ISBN del libro
@@ -108,32 +82,32 @@ Análisis realizado: Diciembre 2025
   - `rating`: Calificación (1-5 estrellas)
   - `tags`: Etiquetas personalizadas
 
-### 13. Integración con APIs
+### 11. Integración con APIs
 - **Oportunidad**: 
   - Auto-completar datos desde Open Library API
   - Obtener portadas automáticamente
   - Sincronizar con Goodreads/LibraryThing
 
-### 14. Historial de cambios
+### 12. Historial de cambios
 - **Oportunidad**: Tracking de cuándo se agregó cada libro, cuándo se leyó
 - **Implementación**: Git history o campo `addedDate` en JSON
 
 ## 🟠 Mejoras de Infraestructura
 
-### 15. CI/CD
+### 13. CI/CD
 - **Oportunidad**: 
   - GitHub Actions para build automático
   - Deploy automático a Vercel/Netlify
   - Validación de JSON en PRs
   - Preview deployments
 
-### 16. Monitoreo y analytics
+### 14. Monitoreo y analytics
 - **Oportunidad**: 
   - Analytics básico (Plausible, GoatCounter - privacy-friendly)
   - Error tracking (Sentry)
   - Performance monitoring
 
-### 17. Documentación
+### 15. Documentación
 - **Oportunidad**: 
   - Documentación de API (si se agrega)
   - Guía de contribución
@@ -143,23 +117,22 @@ Análisis realizado: Diciembre 2025
 ## 📊 Priorización Sugerida
 
 ### Fase 1 (Quick wins - 1-2 días)
-1. Mejorar SEO (meta tags) - #4
-2. Ordenamiento - #1
+1. Ordenamiento - #1
 
 ### Fase 2 (Mejoras medias - 1 semana)
-3. Optimización de imágenes - #3
-4. Mejoras de accesibilidad - #5
+2. Mejoras de accesibilidad - #3
+3. Performance - #4
 
 ### Fase 3 (Features mayores - 2-3 semanas)
-5. Vista detalle de libro - #2
-6. Campos adicionales en JSON - #12
-7. CI/CD y deploy automático - #15
-8. Testing básico - #7
+4. Vista detalle de libro - #2
+5. Campos adicionales en JSON - #10
+6. CI/CD y deploy automático - #13
+7. Testing básico - #5
 
 ### Fase 4 (Nice to have)
-9. Integración con APIs externas - #13
-10. Exportación de datos - #10
-11. Analytics y monitoreo - #16
+8. Integración con APIs externas - #11
+9. Exportación de datos - #8
+10. Analytics y monitoreo - #14
 
 ## ✅ Completado
 
@@ -167,7 +140,8 @@ Análisis realizado: Diciembre 2025
 - **Validación de datos**: JSON Schema, script de validación y tipos TypeScript implementados
 - **Estadísticas básicas**: Mostradas en el párrafo introductorio (total, leídos, pendientes)
 - **Filtrado y búsqueda**: Sistema completo de filtros dinámicos con búsqueda en tiempo real, filtros por estado/autor/editorial, URL params y diseño responsivo
-- **Optimización de imágenes**: Intersection Observer para lazy loading mejorado, soporte AVIF con fallback automático, carga diferida optimizada
+- **Optimización de imágenes**: Intersection Observer para lazy loading mejorado, 152 variantes generadas (400w, 600w, 800w, 1200w), srcset responsivo implementado
+- **SEO mejorado**: Open Graph tags, Twitter Cards, Schema.org JSON-LD con datos estructurados de libros, sitemap.xml dinámico, robots.txt configurado
 
 ## 📝 Notas Adicionales
 

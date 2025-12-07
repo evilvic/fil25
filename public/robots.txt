@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fil25.vic.monster/sitemap.xml
