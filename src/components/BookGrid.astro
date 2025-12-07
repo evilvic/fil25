@@ -118,7 +118,7 @@ const { books } = Astro.props;
     width: 100%;
     aspect-ratio: 2 / 3;
     overflow: hidden;
-    background-color: var(--border, rgba(0, 0, 0, 0.1));
+    background-color: transparent;
     border-radius: 2px;
     margin-bottom: 0.75rem;
   }
@@ -126,7 +126,7 @@ const { books } = Astro.props;
   .book-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     transition: filter 0.3s ease-out;
   }

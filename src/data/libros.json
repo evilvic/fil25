@@ -8,7 +8,7 @@
     "publishers": [
       "UACM"
     ],
-    "image": "/books/abigael_bojorquez.jpg"
+    "image": "/books/abigael.webp"
   },
   {
     "title": "Allanamientos",
@@ -18,7 +18,7 @@
     "publishers": [
       "Pez en el Hielo"
     ],
-    "image": "/books/allanamientos.jpg"
+    "image": "/books/allanamientos.webp"
   },
   {
     "title": "Archipiélago",
@@ -28,7 +28,7 @@
     "publishers": [
       "Ampersand"
     ],
-    "image": "/books/archipielago.jpg"
+    "image": "/books/archipielago.webp"
   },
   {
     "title": "Balún-Canán",
@@ -48,7 +48,7 @@
     "publishers": [
       "Blatt & Ríos"
     ],
-    "image": "/books/cartas_a_su_madre.jpg"
+    "image": "/books/cartas_madre.webp"
   },
   {
     "title": "Cartas a Vincent",
@@ -56,9 +56,22 @@
       "Julio César Pérez"
     ],
     "publishers": [
-      "El Zorro Rojo"
+      "Zorro Rojo"
     ],
-    "image": "/books/cartas_a_vincent.jpg"
+    "image": "/books/cartas_a_vincent.webp"
+  },
+  {
+    "title": "Cartas y poemas de amor entre Bioy y Elena",
+    "subtitle": "Adolfo Bioy Casares en el archivo de Elena Garro",
+    "author": [
+      "Adolfo Bioy Casares",
+      "Elena Garro"
+    ],
+    "publishers": [
+      "BUAP",
+      "El Lirio"
+    ],
+    "image": "/books/cartas_poemas.webp"
   },
   {
     "title": "Contextual (1)",
@@ -72,7 +85,7 @@
     "publishers": [
       "Bartlebooth"
     ],
-    "image": "/books/contextual_1.jpg"
+    "image": "/books/contextual.webp"
   },
   {
     "title": "Correspondencia",
@@ -83,7 +96,7 @@
     "publishers": [
       "Rara Avis"
     ],
-    "image": "/books/correspondencia.jpg"
+    "image": "/books/correspondencia.webp"
   },
   {
     "title": "Correspondencia erótica",
@@ -94,7 +107,7 @@
     "publishers": [
       "Rara Avis"
     ],
-    "image": "/books/correspondencia_erotica.jpg"
+    "image": "/books/correspondencia_erotica.webp"
   },
   {
     "title": "Cuaderno de escritura infantil y juvenil",
@@ -105,7 +118,28 @@
     "publishers": [
       "Factotum Ediciones"
     ],
-    "image": "/books/cuaderno_de_escritura_infantil_y_juvenil.jpg"
+    "image": "/books/cuaderno_escritura.webp"
+  },
+  {
+    "title": "Este minuto único y eterno",
+    "subtitle": "El archivo privado de Rosario Castellanos",
+    "author": [
+      "Varios autores"
+    ],
+    "publishers": [
+      "UNAM"
+    ],
+    "image": "/books/este_minuto.webp"
+  },
+  {
+    "title": "Fieras interiores",
+    "author": [
+      "Andrés Cota Hiriart"
+    ],
+    "publishers": [
+      "Random House"
+    ],
+    "image": "/books/fieras_interiores.webp"
   },
   {
     "title": "Final de temporada",
@@ -115,7 +149,7 @@
     "publishers": [
       "Tragaluz Editores"
     ],
-    "image": "/books/final_de_temporada.jpg"
+    "image": "/books/temporada.webp"
   },
   {
     "title": "Hetero",
@@ -125,7 +159,7 @@
     "publishers": [
       "Consonni"
     ],
-    "image": "/books/hetero.jpg"
+    "image": "/books/hetero.webp"
   },
   {
     "title": "Incensurable",
@@ -136,7 +170,7 @@
       "UNAM",
       "Almadía"
     ],
-    "image": "/books/incensurable.jpg"
+    "image": "/books/incensurable.webp"
   },
   {
     "title": "Inundación",
@@ -147,7 +181,17 @@
     "publishers": [
       "DocumentA/Escénicas"
     ],
-    "image": "/books/inundacion.jpg"
+    "image": "/books/inundacion.gif"
+  },
+  {
+    "title": "La anarquía explicada a los niños",
+    "author": [
+      "José Antonio Emmanuel"
+    ],
+    "publishers": [
+      "Zorro Rojo"
+    ],
+    "image": "/books/la_anarquia.webp"
   },
   {
     "title": "La filial",
@@ -157,7 +201,7 @@
     "publishers": [
       "Fulgencio Pimentel"
     ],
-    "image": "/books/la_filial.jpg"
+    "image": "/books/la_filial.webp"
   },
   {
     "title": "Las gemelas, el sueño",
@@ -169,7 +213,18 @@
     "publishers": [
       "Rara Avis"
     ],
-    "image": "/books/las_gemelas_el_sueno.jpg"
+    "image": "/books/las_gemelas_el_sueno.webp"
+  },
+  {
+    "title": "Lecciones de una pandemia",
+    "subtitle": "Ideas para enfrentarse a los retos de salud planetaria",
+    "author": [
+      "Salvador Macip"
+    ],
+    "publishers": [
+      "Anagrama"
+    ],
+    "image": "/books/pandemia.webp"
   },
   {
     "title": "Lo roto precede a lo entero",
@@ -180,7 +235,27 @@
     "publishers": [
       "El Colegio Nacional"
     ],
-    "image": "/books/lo_roto_precede_a_lo_entero.jpg"
+    "image": "/books/roto.webp"
+  },
+  {
+    "title": "Los platillos voladores, el proceso de la materia y la energía, la ciencia, la lucha de clases y revolucionaria y el futuro socialista de la humanidad",
+    "author": [
+      "J. Posadas"
+    ],
+    "publishers": [
+      "Zorro Rojo"
+    ],
+    "image": "/books/los_platillos_voladores.webp"
+  },
+  {
+    "title": "Marciano",
+    "author": [
+      "Nona Fernández"
+    ],
+    "publishers": [
+      "Random House"
+    ],
+    "image": "/books/marciano.webp"
   },
   {
     "title": "Mujeres en bicicleta",
@@ -214,7 +289,7 @@
     "publishers": [
       "Pez en el Hielo"
     ],
-    "image": "/books/papeles_suizos_novela_historica.jpg"
+    "image": "/books/papeles_suizos.webp"
   },
   {
     "title": "Pedagogías radicales y arte: experiencias comunales",
@@ -224,7 +299,18 @@
     "publishers": [
       "Tumbalacasa"
     ],
-    "image": "/books/pedagogias_radicales_y_arte_experiencias_comunales.jpg"
+    "image": "/books/pedagogias.webp"
+  },
+  {
+    "title": "Pussypedia",
+    "subtitle": "A Comprehensive Guide",
+    "author": [
+      "Zoe Mendelson",
+      "María Conejo"
+    ],
+    "publishers": [
+      "Hatchette"
+    ]
   },
   {
     "title": "Terrestre",
@@ -234,7 +320,17 @@
     "publishers": [
       "Random House"
     ],
-    "image": "/books/terrestre.jpg"
+    "image": "/books/terrestre.webp"
+  },
+  {
+    "title": "Todos los fines del mundo",
+    "author": [
+      "Andrea Chapela"
+    ],
+    "publishers": [
+      "Random House"
+    ],
+    "image": "/books/todos_los_fines_del_mundo.webp"
   },
   {
     "title": "Última carta a un lector",
@@ -244,7 +340,7 @@
     "publishers": [
       "Gris Tormenta"
     ],
-    "image": "/books/ultima_carta_a_un_lector.jpg"
+    "image": "/books/carta_lector.webp"
   },
   {
     "title": "Una cartografía extraña",
@@ -256,7 +352,7 @@
     "publishers": [
       "Ediciones Metales Pesados"
     ],
-    "image": "/books/una_cartografia_extrana.jpg"
+    "image": "/books/cartografia.webp"
   },
   {
     "title": "Ya nadie escribe cartas",
@@ -266,6 +362,38 @@
     "publishers": [
       "Shiro"
     ],
-    "image": "/books/ya_nadie_escribe_cartas.jpg"
+    "image": "/books/nadie_escribe_cartas.webp"
+  },
+  {
+    "title": "Tlaltataca in ilnamiqui | Surcar el olvido",
+    "subtitle": "Amoxtli xayacaxanehque | Álbum familiar",
+    "author": [
+      "Isela Xospa"
+    ],
+    "publishers": [
+      "Xospatronik"
+    ],
+    "image": "/books/olvido.webp"
+  },
+  {
+    "title": "2 + 5",
+    "subtitle": "7 Ensayos sobre el arte",
+    "author": [
+      "Félix Ángel"
+    ],
+    "publishers": [
+      "Tragaluz"
+    ],
+    "image": "/books/7_ensayos.webp"
+  },
+  {
+    "title": "Casa de clavos",
+    "author": [
+      "Sergio Vicencio"
+    ],
+    "publishers": [
+      "Big Bang"
+    ],
+    "image": "/books/casa_de_clavos.webp"
   }
 ]
