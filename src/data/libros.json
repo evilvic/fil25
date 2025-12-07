@@ -1,5 +1,16 @@
 [
   {
+    "title": "2 + 5",
+    "subtitle": "7 Ensayos sobre el arte",
+    "author": [
+      "Félix Ángel"
+    ],
+    "publishers": [
+      "Tragaluz"
+    ],
+    "image": "/books/7_ensayos.webp"
+  },
+  {
     "title": "Abigael Bojórquez",
     "subtitle": "Correspondencia",
     "author": [
@@ -31,14 +42,14 @@
     "image": "/books/archipielago.webp"
   },
   {
-    "title": "Balún-Canán",
+    "title": "Cartas a Rosario",
     "author": [
-      "Rosario Castellanos"
+      "Rosa Beltrán"
     ],
     "publishers": [
-      "Fondo de Cultura Económica"
+      "UNAM"
     ],
-    "image": "/books/balun_canan.jpg"
+    "image": "/books/cartas_a_rosario.webp"
   },
   {
     "title": "Cartas a su madre",
@@ -72,6 +83,16 @@
       "El Lirio"
     ],
     "image": "/books/cartas_poemas.webp"
+  },
+  {
+    "title": "Casa de clavos",
+    "author": [
+      "Sergio Vicencio"
+    ],
+    "publishers": [
+      "Big Bang"
+    ],
+    "image": "/books/casa_de_clavos.webp"
   },
   {
     "title": "Contextual (1)",
@@ -119,6 +140,16 @@
       "Factotum Ediciones"
     ],
     "image": "/books/cuaderno_escritura.webp"
+  },
+  {
+    "title": "Descubrimiento de Molgoria y diario de C",
+    "author": [
+      "Juan David Quintero Arenas"
+    ],
+    "publishers": [
+      "Tragaluz"
+    ],
+    "image": "/books/descubrimiento.webp"
   },
   {
     "title": "Este minuto único y eterno",
@@ -181,7 +212,7 @@
     "publishers": [
       "DocumentA/Escénicas"
     ],
-    "image": "/books/inundacion.gif"
+    "image": "/books/inundacion.webp"
   },
   {
     "title": "La anarquía explicada a los niños",
@@ -310,7 +341,8 @@
     ],
     "publishers": [
       "Hatchette"
-    ]
+    ],
+    "image": "/books/pussypedia.webp"
   },
   {
     "title": "Terrestre",
@@ -321,6 +353,17 @@
       "Random House"
     ],
     "image": "/books/terrestre.webp"
+  },
+  {
+    "title": "Tlaltataca in ilnamiqui | Surcar el olvido",
+    "subtitle": "Amoxtli xayacaxanehque | Álbum familiar",
+    "author": [
+      "Isela Xospa"
+    ],
+    "publishers": [
+      "Xospatronik"
+    ],
+    "image": "/books/olvido.webp"
   },
   {
     "title": "Todos los fines del mundo",
@@ -363,37 +406,5 @@
       "Shiro"
     ],
     "image": "/books/nadie_escribe_cartas.webp"
-  },
-  {
-    "title": "Tlaltataca in ilnamiqui | Surcar el olvido",
-    "subtitle": "Amoxtli xayacaxanehque | Álbum familiar",
-    "author": [
-      "Isela Xospa"
-    ],
-    "publishers": [
-      "Xospatronik"
-    ],
-    "image": "/books/olvido.webp"
-  },
-  {
-    "title": "2 + 5",
-    "subtitle": "7 Ensayos sobre el arte",
-    "author": [
-      "Félix Ángel"
-    ],
-    "publishers": [
-      "Tragaluz"
-    ],
-    "image": "/books/7_ensayos.webp"
-  },
-  {
-    "title": "Casa de clavos",
-    "author": [
-      "Sergio Vicencio"
-    ],
-    "publishers": [
-      "Big Bang"
-    ],
-    "image": "/books/casa_de_clavos.webp"
   }
 ]
