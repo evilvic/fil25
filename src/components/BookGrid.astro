@@ -1,12 +1,5 @@
 ---
-interface Book {
-  title: string;
-  subtitle?: string;
-  author: string[];
-  publishers: string[];
-  image?: string;
-  readDate?: string;
-}
+import type { Book } from '../types/book';
 
 interface Props {
   books: Book[];
@@ -14,20 +7,52 @@ interface Props {
 
 const { books } = Astro.props;
 
+// Función para generar srcset con múltiples tamaños
+// El navegador manejará automáticamente qué variantes cargar
+function generateSrcSet(imagePath: string): string {
+  const basePath = imagePath.replace(/\.(webp|jpg|jpeg|png)$/i, '');
+  const extension = imagePath.match(/\.(webp|jpg|jpeg|png)$/i)?.[1] || 'webp';
+  
+  // Generar srcset para diferentes tamaños
+  // El navegador intentará cargar las variantes y usará la original si no existen
+  const sizes = [400, 600, 800, 1200];
+  const srcsetParts = sizes
+    .map(size => `${basePath}_${size}w.${extension} ${size}w`)
+    .filter((_, index) => {
+      // Incluir todas las variantes - el navegador manejará los 404s silenciosamente
+      // y usará la siguiente opción disponible
+      return true;
+    });
+  
+  // Incluir la imagen original como fallback final
+  return [...srcsetParts, `${imagePath} 1400w`].join(', ');
+}
+
 ---
 
 <div class="book-grid">
-  {books.map((book) => (
-    <article class={`book-card ${book.readDate ? 'read' : 'unread'}`}>
+  {books.map((book, index) => (
+    <article 
+      class={`book-card ${book.readDate ? 'read' : 'unread'}`}
+      data-book-index={index}
+      data-book-title={book.title.toLowerCase()}
+      data-book-subtitle={book.subtitle ? book.subtitle.toLowerCase() : ''}
+      data-book-authors={JSON.stringify(book.author)}
+      data-book-publishers={JSON.stringify(book.publishers)}
+      data-book-read={book.readDate ? 'true' : 'false'}
+    >
       <div class="book-image-wrapper">
         {book.image ? (
           <>
             <img
               src={book.image}
+              srcset={generateSrcSet(book.image)}
+              sizes="(max-width: 480px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
               alt={`Portada de ${book.title}${book.subtitle ? `: ${book.subtitle}` : ''}`}
-              class="book-image"
+              class="book-image lazy-image"
               loading="lazy"
-              onerror="this.style.display='none'; const placeholder=this.nextElementSibling; if(placeholder){ placeholder.classList.remove('placeholder-hidden'); }"
+              decoding="async"
+              onerror="this.onerror=null; this.style.display='none'; const placeholder=this.nextElementSibling; if(placeholder){ placeholder.classList.remove('placeholder-hidden'); }"
             />
             <div class="book-image-placeholder placeholder-hidden">
               <div class="book-placeholder-body">
@@ -388,4 +413,74 @@ const { books } = Astro.props;
   .book-card.unread .book-publisher {
     opacity: 0.6;
   }
+
+  /* Lazy loading con intersection observer */
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
 </style>
+
+<script>
+  // Intersection Observer para lazy loading mejorado
+  (function() {
+    'use strict';
+
+    // Intersection Observer para mejorar la carga de imágenes
+    // Las imágenes ya tienen src y srcset, solo mejoramos la experiencia visual
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            // Solo agregar la clase loaded para la transición visual
+            // El navegador ya maneja la carga con srcset
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        // Cargar imágenes cuando estén a 100px de entrar en el viewport
+        rootMargin: '100px',
+        threshold: 0.01
+      });
+
+      // Observar todas las imágenes lazy
+      function initLazyLoading() {
+        const lazyImages = document.querySelectorAll('.lazy-image');
+        lazyImages.forEach(img => {
+          // Si la imagen ya está cargada, agregar clase inmediatamente
+          if (img.complete && img.naturalHeight !== 0) {
+            img.classList.add('loaded');
+          } else {
+            imageObserver.observe(img);
+            // Fallback: agregar clase cuando la imagen se carga
+            img.addEventListener('load', () => {
+              img.classList.add('loaded');
+            });
+            // También manejar errores de carga
+            img.addEventListener('error', () => {
+              img.classList.add('loaded');
+            });
+          }
+        });
+      }
+
+      // Inicializar cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLazyLoading);
+      } else {
+        initLazyLoading();
+      }
+    } else {
+      // Fallback: agregar clase loaded a todas las imágenes
+      document.querySelectorAll('.lazy-image').forEach(img => {
+        img.classList.add('loaded');
+      });
+    }
+  })();
+</script>

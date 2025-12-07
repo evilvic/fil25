@@ -6,9 +6,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "validate": "node scripts/validate-libros.js",
+    "prebuild": "npm run validate",
+    "generate-images": "node scripts/generate-image-variants.js"
   },
   "dependencies": {
     "astro": "^5.16.4"
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "sharp": "^0.34.5"
   }
 }
