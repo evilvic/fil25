@@ -212,7 +212,8 @@
     "publishers": [
       "DocumentA/Escénicas"
     ],
-    "image": "/books/inundacion.webp"
+    "image": "/books/inundacion.webp",
+    "readDate": "2025-12-09"
   },
   {
     "title": "La anarquía explicada a los niños",
