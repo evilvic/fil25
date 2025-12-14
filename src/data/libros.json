@@ -256,7 +256,8 @@
     "publishers": [
       "Anagrama"
     ],
-    "image": "/books/pandemia.webp"
+    "image": "/books/pandemia.webp",
+    "readDate": "2025-12-14"
   },
   {
     "title": "Lo roto precede a lo entero",
