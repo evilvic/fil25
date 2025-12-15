@@ -69,7 +69,8 @@
     "publishers": [
       "Zorro Rojo"
     ],
-    "image": "/books/cartas_a_vincent.webp"
+    "image": "/books/cartas_a_vincent.webp",
+    "readDate": "2025-12-14"
   },
   {
     "title": "Cartas y poemas de amor entre Bioy y Elena",
