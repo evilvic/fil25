@@ -42,6 +42,17 @@
     "image": "/books/archipielago.webp"
   },
   {
+    "title": "Balún-Canán",
+    "author": [
+      "Rosario Castellanos"
+    ],
+    "publishers": [
+      "FCE"
+    ],
+    "image": "/books/balun_canan.webp",
+    "readDate": "2025-05-16"
+  },
+  {
     "title": "Cartas a Rosario",
     "author": [
       "Rosa Beltrán"
@@ -107,7 +118,8 @@
     "publishers": [
       "Bartlebooth"
     ],
-    "image": "/books/contextual.webp"
+    "image": "/books/contextual.webp",
+    "readDate": "2026-04-05"
   },
   {
     "title": "Correspondencia",
