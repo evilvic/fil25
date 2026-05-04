@@ -335,7 +335,8 @@
     "publishers": [
       "Pez en el Hielo"
     ],
-    "image": "/books/papeles_suizos.webp"
+    "image": "/books/papeles_suizos.webp",
+    "readDate": "2026-05-02"
   },
   {
     "title": "Pedagogías radicales y arte: experiencias comunales",
