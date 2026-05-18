@@ -29,7 +29,8 @@
     "publishers": [
       "Pez en el Hielo"
     ],
-    "image": "/books/allanamientos.webp"
+    "image": "/books/allanamientos.webp",
+    "readDate": "2026-05-16"
   },
   {
     "title": "Archipiélago",
