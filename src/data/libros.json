@@ -40,7 +40,8 @@
     "publishers": [
       "Ampersand"
     ],
-    "image": "/books/archipielago.webp"
+    "image": "/books/archipielago.webp",
+    "readDate": "2026-06-13"
   },
   {
     "title": "Balún-Canán",
