@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fil25.vic.monster/sitemap.xml
+Sitemap: https://fil25.vic.fail/sitemap.xml

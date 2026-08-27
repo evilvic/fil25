@@ -365,4 +365,4 @@ El sitio incluye:
 - **Sitemap.xml**: Generado dinámicamente en `/sitemap.xml`
 - **robots.txt**: Configurado para permitir todos los crawlers
 
-**Nota**: Actualiza la URL `https://fil25.vic.monster` en `src/pages/index.astro` y `src/pages/sitemap.xml.ts` con la URL real del sitio cuando esté desplegado.
+**Nota**: la URL del sitio es `https://fil25.vic.fail` y vive en tres lugares: `src/pages/index.astro`, `src/pages/sitemap.xml.ts` y `public/robots.txt`. Si cambia, cámbiala en los tres.

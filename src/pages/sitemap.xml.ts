@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
-  const siteUrl = 'https://fil25.vic.monster'; // Actualizar con la URL real del sitio
+  const siteUrl = 'https://fil25.vic.fail'; 
   const lastmod = new Date().toISOString().split('T')[0];
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
