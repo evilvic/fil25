@@ -423,6 +423,7 @@
     "publishers": [
       "Shiro"
     ],
-    "image": "/books/nadie_escribe_cartas.webp"
+    "image": "/books/nadie_escribe_cartas.webp",
+    "readDate": "2026-09-03"
   }
 ]
